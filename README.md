@@ -1,5 +1,5 @@
 # NJC0 2020 website
-1st place in New Jeresy Chemistry Olympics: Web Design. 
+1st place in New Jersey Chemistry Olympics: Web Design. 
 By: Max Myron, Michael Peluso, Jimmy Scholz
 
 ## Brief
