@@ -1,0 +1,40 @@
+@import "global";
+#general-container{
+    $this:&;
+    div{
+        h1{
+            margin: 35px 0;
+        }
+        h3{
+            margin: 25px 0;
+        }
+        p{
+            text-indent: 15px;
+            padding-left:15px;
+            font-size: 1.2em;
+            line-height: 1.8;
+
+            margin: 0 4em;
+        }
+        ol {
+            margin: 25px 8em;
+            line-height: 1.8;
+            li{
+                @extend .manrope;
+                font-size: 1.2em;
+                font-weight: thin;
+
+            }
+        }   
+    }
+}
+.bg-color{
+    background: url("../../assets/curves/loop.svg"), linear-gradient(35deg, map-get($colors, 'minty-green'), map-get($colors, 'ocean-blue'));
+    background-position-y: calc(100% + 1px);
+    background-repeat: repeat-x, no-repeat;
+    background-size: 20%, cover;
+}
+
+#introduction-text{
+    font-size: 1.4em !important;
+}

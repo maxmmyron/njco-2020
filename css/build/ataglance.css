@@ -1,0 +1,84 @@
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "Manrope";
+    src: url("../../assets/fonts/Manrope/thin.otf") format("opentype");
+    font-weight: 200;
+  }
+
+.reference-table {
+    width: 100%;
+    margin: auto;
+    margin-top: 30px;
+  }
+
+  .reference-table tbody > tr td {
+    font-size: 1em;
+    font-family: "Manrope";
+    color: black;
+    line-height: 1.8;
+    font-weight: 300;
+    text-align: center;
+  } 
+  .reference-table > tbody > tr:nth-child(1) {
+    vertical-align: text-top;
+    background: linear-gradient(to right, #9DE0AD -20%, #45ADA8 200%);
+  }
+  .reference-table > tbody > tr:nth-child(1) > td{
+    font-weight: 900;
+    margin-top: 10px;
+    vertical-align: middle;
+    line-height: 20px;
+    padding: 3px;
+  }
+  .reference-table > tbody > tr:nth-child(2n+2){
+    background-color: #eee;
+  }
+  .reference-table > tbody > tr:nth-child(n+2) > td:nth-child(1){
+    text-align: left;
+    padding: 10px 15px;
+    font-weight: 500;
+  }
+  .reference-table > tbody > tr:nth-child(n+2) > td:nth-child(1):hover {
+    text-decoration: underline;
+  }
+
+  .anchor {
+    display: block;
+    position: relative;
+    top: -150px;
+    visibility: hidden;
+  }
+
+  .top-link {
+    display: block;
+    position: relative;
+    top: -75px;
+    visibility: hidden;
+  }
+
+  .top-button {
+    position: sticky;
+    margin-left: 105%;
+    z-index: 10;
+    margin-top: -100px;
+    top: 80vh;
+    left: 5%;
+    background-color: #9DE0AD;
+    height: 75px;
+    width: 75px;
+    border-radius: 100px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .top-button-name {
+    position: relative;
+    font-weight: bolder;
+    font-family: "Manrope";
+    font-size: 3em;
+    top: 13px;
+    left: 2px;
+  }

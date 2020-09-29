@@ -1,0 +1,162 @@
+@use "global";
+
+#landing{
+    min-height: 100vh;
+    &::before{
+        z-index: 2;
+        position: absolute;
+        display: inline-block;
+        content:"";
+        width: 100%;
+        height: 100vh;
+        background: url('../../assets/curves/index_header_curve.png');
+        background-position: bottom right;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
+#POP-preview-section{
+    &::before{
+        z-index: -1;
+        content:"";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: inline-block;
+        background: url('../../assets/curves/top_trans_1.png');
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        transform: scaleX(-1);
+        margin-top: -17px;
+    }
+}
+#why-section{
+    $this: &;
+    &::before{
+        z-index: -1;
+        content:"";
+        width:100%;
+        height:250px;
+        display: block;
+        background: url('../../assets/curves/bottom-trans-2.png');
+        background-position: bottom center;
+        background-repeat: repeat-x;
+        background-size: contain;
+    }
+    & > div.w-100{
+        background-color: map-get(global.$colors, 'ocean-blue');
+    }
+}
+#read-more-section{
+    &::before{
+        z-index: -1;
+        content:"";
+        width:100%;
+        height:100%;
+        position: absolute;
+        display: inline-block;
+        background: url('../../assets/curves/top-trans-2.png');
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
+
+#landing-title{
+    z-index: 3;
+    @extend .textsize-4em;
+    
+}
+/*TRANSFER BELOW CSS TO DD PAGE*/
+#POP-landing-canvas{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+#POP-preview-carousel{
+    height:60vh;
+}
+.carousel-card{
+    height:55vh;
+    div{
+        height:100%
+    }
+}
+.flickity-page-dots{
+    bottom:10px;
+}
+.content-square{
+
+    $this:&;
+    
+    width: 100%;
+    position: relative;
+    &::after{
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+}
+.content-in-square{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#landing > div{
+    min-height: 100vh;
+    flex-direction: column;
+    width:100%;
+}
+.link-container-container{
+    display: flex;
+}
+.link-container{
+    width:90%;
+}
+.link-left{
+    justify-content: center;
+}
+.link-right{
+    justify-content: center;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+    .link-container{
+        width:70%;
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    #landing > div{
+        min-height: 100%;
+        flex-direction: row;
+        width:50%;
+    }
+    #landing-title{
+        font-size: 6em;
+    }
+    .link-container{
+        width:50%;
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    #landing-title{
+        font-size: 7em;
+    }
+    .link-container{
+        width:40%;
+    }
+}
+#from{
+    text-align: end;
+}

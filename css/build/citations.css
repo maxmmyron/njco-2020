@@ -1,0 +1,12 @@
+#citation-container > {
+  overflow-wrap: break-word;
+}
+#citation-container div {
+  overflow-wrap: break-word;
+}
+#citation-container div p {
+  text-indent: -15px;
+  padding-left: 15px;
+}
+
+/*# sourceMappingURL=citations.css.map */

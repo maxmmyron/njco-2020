@@ -1,0 +1,292 @@
+@use 'global';
+$vendors: (-webkit-, -moz-, -ms-, -o-, '');
+@mixin prefix($property, $value) {
+	@each $v in $vendors {
+		#{$v}#{$property}: $value;
+	}
+}
+body{
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+main{
+    width:100vw;
+    height:100vh;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+.clipped-container{
+    width:100%;
+    height:100%;
+    background-color:white;
+    position:relative;
+}
+.clipped{
+    width:100%;
+    height:100%;
+    position:absolute;
+    overflow-y: auto;
+}
+.clip-sm{
+    clip-path: circle(35px at 95% 10%);
+    -webkit-clip-path: circle(35px at 95% 10%);
+    z-index:2;
+    animation: grow-from-zero 0.4s;
+    &:hover{
+        clip-path: circle(37px at 95% 10%);
+        -webkit-clip-path: circle(37px at 95% 10%);
+        transition:0.2s;
+        cursor: pointer;
+    }
+}
+.clip-lg{
+    clip-path: circle(140% at 95% 10%);
+    -webkit-clip-path: circle(140% at 95% 10%);
+    z-index:1;
+    animation: grow-to-full 0.6s;
+}
+.clippedL, .clippedL > .clipped-container{
+    background-color: #eee;
+}
+.clippedD, .clippedD > .clipped-container{
+    background-color: #353535;
+}
+
+@keyframes grow-from-zero{
+    0%{ 
+        clip-path: circle(0px at 95% 10%); 
+        -webkit-clip-path: circle(0px at 95% 10%); 
+    }
+    100%{ 
+        clip-path: circle(35px at 95% 10%); 
+        -webkit-clip-path: circle(35px at 95% 10%); 
+    }
+}
+@keyframes grow-to-full{
+    0%{
+        clip-path: circle(35px at 95% 10%);
+        -webkit-clip-path: circle(35px at 95% 10%);
+        z-index:2;
+    }
+    99%{ z-index:2; }
+    100%{
+        z-index:1;
+        clip-path: circle(140% at 95% 10%);
+        -webkit-clip-path: circle(140% at 95% 10%);
+    }
+}
+
+.nav-item, .logo:after{
+    color:red !important;
+    mix-blend-mode: lighten;
+}
+.hcb{
+    font-size:3.5em!important;
+}
+.molecule-title, .quick-fact-title, .molecule-formula{
+    font-weight:bolder;
+    font-size:4em;
+}
+.colorL{
+    color:#eee;
+    margin-left: 9px;
+}
+.colorD{
+    color:#353535;
+}
+.clipped-container{
+    width:95vw;
+    height:95vh;
+    position:relative;
+}
+.plus-button{
+    width:35px;
+    height:35px;
+    position:absolute;
+    left:95%;
+    top:10%;
+    transform:translate(-50%,-50%);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:5;
+    pointer-events:none;
+
+    i{
+        color: #00ffaa;
+        font-size:30px;
+    
+        width:30px;
+        height:30px;
+    
+        text-align:center;
+        transition:0.4s;
+    }
+}
+.rotate-45{
+    transform:rotate(45deg);
+    color: #ff00aa !important;
+}
+.pop-item{
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position: relative;
+    a[id]{
+        position: absolute;
+        top:0px;
+    }
+}
+.canvas-container{
+    position:relative;
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+.molecule{
+    height:100%;
+    position:absolute;
+}
+.fact-table{ width:100%; }
+.fact-table tbody > tr {
+    td{
+        font-family: Verdana;
+        font-size: 16px;
+        color: #eee;
+        line-height:1.8;
+        &:nth-child(1){ font-weight:bolder; }
+        &:nth-child(2){ text-align:right; }
+    }
+}
+.information-container{
+    font-family: Verdana;
+    font-size: 16px;
+    color: #eee;
+    line-height:1.8;
+}
+.w-40{ width:40%; }
+.w-60{ width:60%; }
+.colorLight{color: rgba(0, 0, 0, 0.3);}
+.molecule-formula{ font-size: 2em; }
+.Cl{ color: darken(saturate(map-get(global.$colors , "minty-green"), 75), 33.333333333333333); }
+#nav-system{
+    z-index: 10;
+    position: fixed;
+}
+.circle-handling{
+    position: absolute;
+    width: 100vh;
+    height:100vh;
+    left: -40vh;
+    top:50%;
+    transform: translate(-50%,-50%);
+    background-color: #00ffaa;
+    transition: 0.2s;
+    transform: rotate(-90deg+(180deg - 120deg*0.5)/2);
+    #circle-handling__clip-fill{
+        z-index: 10;
+        width: 70px;
+        height: 70px;
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        transition: 0.2s;
+    }
+    .circle-handling__button{
+        z-index: 11;
+        width: 70px;
+        height: 70px;
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-(-90deg+(180deg - 120deg*0.5)/2));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        i{
+            font-size: 30px;
+            color: black;
+            transition: 0.2s;
+        }
+    }
+	&__item {
+        text-align: right;
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		top: 50%;
+        left: 50%;
+        margin-top:-25px;
+		cursor: pointer;
+		transition: 0.6s;
+
+		&--name {
+			position: absolute;
+			top: 50%;
+			margin-top: -7px;
+			left: 70px;
+			width: 150px;
+			@extend .manrope;
+			font-weight: 600;
+			font-size: 14px;
+			line-height: 14px;
+			text-transform: uppercase;
+			transition: 0.9s;
+			
+			span {
+                @extend .manrope;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+		}
+    }
+    &__item-sm{
+        transform-origin: -5vh 50%;
+        margin-left: 5vh;
+        @for $i from 1 through 13 {
+			&:nth-of-type(#{$i}) {
+				@include prefix(transform, rotate(($i - 3.5)*45deg/(9)) perspective(1px) translateZ(0px));
+			}
+		}
+    }
+    &__item-lg{
+        transform-origin: -10vh 50%;
+        margin-left: 10vh;
+        @for $i from 1 through 13 {
+			&:nth-of-type(#{$i}) {
+                @include prefix(transform, rotate(($i - 3.5)*90deg/(9)) perspective(1px) translateZ(0px));
+			}
+		}
+    }
+}
+.circle-handling__clip-sm{
+    clip-path: circle(35px);
+    -webkit-clip-path: circle(35px);
+}
+.circle-handling__clip-lg{
+    clip-path: circle(40%);
+    -webkit-clip-path: circle(40%);
+}
+.circle-handling__clip-fill-sm{
+    clip-path: circle(0px);
+    -webkit-clip-path: circle(0px);
+}
+.circle-handling__clip-fill-lg{
+    clip-path: circle(35px);
+    -webkit-clip-path: circle(35px);
+}
+.circle-handling__rotate-45{
+    transform:rotate(45deg);
+}
+.information-container{
+    p{
+        font-size: 22px;
+    }
+}
